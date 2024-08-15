@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const FilterTabs = () => {
   return (
@@ -12,7 +12,7 @@ const FilterTabs = () => {
         </button>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FilterTabs;
+export default FilterTabs

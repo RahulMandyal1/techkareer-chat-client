@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const messages = [
   {
@@ -31,7 +31,7 @@ const messages = [
     daysAgo: 11,
     text: "5th Hello, I wanted to know more about the product design position opened at Atlassian.",
   },
-];
+]
 
 const MessageList = () => {
   return (
@@ -45,7 +45,7 @@ const MessageList = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default MessageList;
+export default MessageList
