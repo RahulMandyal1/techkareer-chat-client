@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const SearchBar = () => {
   return (
@@ -9,7 +9,7 @@ const SearchBar = () => {
         className="w-full p-2 border rounded-lg focus:outline-none focus:border-blue-500"
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
