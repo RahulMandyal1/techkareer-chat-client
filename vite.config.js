@@ -26,6 +26,9 @@ export default defineConfig({
       src: "/src",
       components: "/src/components",
       pages: "/src/pages",
+      utils: "/src/utils",
+      api: "/src/api",
+      constant: "/src/constant",
     },
   },
 

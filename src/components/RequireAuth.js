@@ -1,13 +1,16 @@
 import React from "react"
+import { ROUTES } from "src/constant/routesUrl"
+import { Navigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 const RequireAuth = ({ children }) => {
-  const isAuthenticated = false
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
   if (!isAuthenticated) {
-    ;<div className="h-screen flex align-center justify-center">
-      <h1 className="text-black">You are not logged in login first</h1>
-    </div>
+    return <Navigate to={ROUTES.LOGIN_URL} />
   }
-  return <div>{children}</div>
+
+  return <React.Fragment>{children}</React.Fragment>
 }
 
 export default RequireAuth
