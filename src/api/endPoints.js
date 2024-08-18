@@ -10,6 +10,7 @@ const Endpoints = {
   LOGIN: `${API_BASE_URL}api/v1/auth/login`,
   REGISTER: `${API_BASE_URL}api/v1/auth/register`,
   LOGOUT: `${API_BASE_URL}api/v1/auth/logout`,
+  USERS_LIST: `${API_BASE_URL}api/v1/users/list`,
 }
 
 /**

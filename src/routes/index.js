@@ -3,22 +3,34 @@ import { useRoutes } from "react-router-dom"
 import { ROUTES } from "../constant/routesUrl"
 import { Home, Login, RegisterUser, PageNotFound } from "pages"
 import { RequireAuth } from "src/components"
+import { RedirectIfAuthenticated } from "src/components/RedirectIfAuthenticated"
+import Layout from "src/components/Layout"
 
 const Routes = () => {
   const content = useRoutes([
     {
       path: ROUTES.LOGIN_URL,
-      element: <Login />,
+      element: (
+        <RedirectIfAuthenticated>
+          <Login />
+        </RedirectIfAuthenticated>
+      ),
     },
     {
       path: ROUTES.REGISTER_URL,
-      element: <RegisterUser />,
+      element: (
+        <RedirectIfAuthenticated>
+          <RegisterUser />
+        </RedirectIfAuthenticated>
+      ),
     },
     {
       path: ROUTES.HOME_URL,
       element: (
         <RequireAuth>
-          <Home />
+          <Layout>
+            <Home />
+          </Layout>
         </RequireAuth>
       ),
       children: [],
