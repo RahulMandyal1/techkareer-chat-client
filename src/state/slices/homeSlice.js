@@ -22,6 +22,7 @@ const initialState = {
   usersList: [],
   selectedUser: {},
   messages: {},
+  activeUsers: [],
 }
 const homeSlice = createSlice({
   name: "home",
@@ -30,10 +31,25 @@ const homeSlice = createSlice({
     setSelectedUser: (state, { payload }) => {
       state.selectedUser = payload
     },
-    updateMessages: (state, { payload }) => {
-      if (!payload.message || !payload.username) return
 
-      state.messages[payload?.username] = [...state.messages[payload.username], payload?.message]
+    updateMessages: (state, { payload }) => {
+      const { message, userId } = payload
+      if (!message || !userId) return
+
+      // Check if the userId and message are present
+      if (!userId || !message) return
+
+      // Initialize messages array if it doesn't exist for the given userId
+      if (!state.messages[userId]) {
+        state.messages[userId] = { messages: [] }
+      }
+
+      // Append the new message to the existing messages array
+      state.messages[userId].messages.push(message)
+    },
+
+    setActiveUsers: (state, { payload }) => {
+      state.activeUsers = payload
     },
   },
   extraReducers: (builder) => {
@@ -42,7 +58,7 @@ const homeSlice = createSlice({
 
       // Populate messages in the state
       payload?.users.forEach((user) => {
-        state.messages[user.username] = {
+        state.messages[user.userId] = {
           messages: user.messages.messages,
         }
       })
@@ -61,6 +77,6 @@ const homeSlice = createSlice({
   },
 })
 
-export const { setSelectedUser, updateMessages } = homeSlice.actions
+export const { setSelectedUser, updateMessages, setActiveUsers } = homeSlice.actions
 
 export default homeSlice.reducer

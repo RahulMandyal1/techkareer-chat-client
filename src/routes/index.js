@@ -4,6 +4,7 @@ import { ROUTES } from "../constant/routesUrl"
 import { Home, Login, RegisterUser, PageNotFound } from "pages"
 import { RequireAuth } from "src/components"
 import { RedirectIfAuthenticated } from "src/components/RedirectIfAuthenticated"
+import Layout from "src/components/Layout"
 
 const Routes = () => {
   const content = useRoutes([
@@ -27,7 +28,9 @@ const Routes = () => {
       path: ROUTES.HOME_URL,
       element: (
         <RequireAuth>
-          <Home />
+          <Layout>
+            <Home />
+          </Layout>
         </RequireAuth>
       ),
       children: [],
