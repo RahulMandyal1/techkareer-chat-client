@@ -1,5 +1,5 @@
 import React from "react"
-import { SearchBar, FilterTabs, MessageList } from "components"
+import { SearchBar, MessageList } from "components"
 import { ChatWindow } from "src/components/Chat"
 
 const Home = () => {
