@@ -22,12 +22,12 @@ const UsersList = () => {
         <div
           className="flex flex-row gap-4 px-6 py-4 border-b cursor-pointer"
           onClick={() => handleClick(user)}
-          key={user.userId}
+          key={user?.userId}
         >
           <Avatar size={40} src={user?.profileUrl} />
           <div>
             <p className="font-semibold">
-              {user.username} •{" "}
+              {user?.username} •{" "}
               <span className="font-normal text-[#a3a3a3]">{user?.daysAgo ? user?.daysAgo : 1} days</span>
             </p>
             {/* <RenderLastMessage usersMessages={messages[user?.userId]?.messages} user={user} /> */}
@@ -51,7 +51,7 @@ const RenderLastMessage = ({ usersMessages, user }) => {
 
   return (
     <p>
-      {isCurrentUser ? "You:" : `${user.username} : `}
+      {isCurrentUser ? "You:" : `${user?.username} : `}
       <span className="text-[#bbbbbb]">{message?.content}</span>
     </p>
   )

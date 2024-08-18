@@ -54,6 +54,11 @@ const homeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getUsersList.fulfilled, (state, { payload }) => {
+      if (!Array.isArray(payload?.users)) {
+        console.error("Expected an array but got", payload?.users)
+        return
+      }
+
       state.usersList = [...state.usersList, ...payload?.users]
 
       // Populate messages in the state
